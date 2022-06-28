@@ -6,11 +6,10 @@ var weight = "weight";
 var baby_length = "length";
 var extra =
   "Something to go here!";
-var resetcache = "1";
+var resetcache = "101";
 
 const WORD_LEN = first_name.length;
 const POSSIBLE_NAMES = NAMES_LIST.filter((d) => d.length === WORD_LEN);
-// console.log(POSSIBLE_NAMES);
 
 (this.wordle = this.wordle || {}),
   (this.wordle.bundle = (function (e) {
@@ -1506,7 +1505,7 @@ const POSSIBLE_NAMES = NAMES_LIST.filter((d) => d.length === WORD_LEN);
         .concat(1e3, ";\n  }\n  #system-toaster {\n    z-index: ")
         .concat(
           4e3,
-          ';\n  }\n\n  #game {\n    width: 100%;\n    max-width: var(--game-max-width);\n    margin: 0 auto;\n    height: 100%;\n    display: flex;\n    flex-direction: column;\n  }\n  header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    height: var(--header-height);\n    color: var(--color-tone-1);\n    border-bottom: 1px solid var(--color-tone-4);\n  }\n  header .title {\n    font-weight: 700;\n    font-size: 36px;\n    letter-spacing: 0.2rem;\n    text-transform: uppercase;\n    text-align: center;\n    position: absolute;\n    left: 0;\n    right: 0;\n    pointer-events: none;\n  }\n\n  @media (max-width: 360px) {\n    header .title {\n      font-size: 22px;\n      letter-spacing: 0.1rem;\n    }\n  }\n\n  #board-container {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-grow: 1;\n    overflow: hidden;\n  }\n  #board {\n    display: grid;\n    grid-template-rows: repeat(6, 1fr);\n    grid-gap: 5px;\n    padding:10px;\n    box-sizing: border-box;\n  }\n  button.icon {\n    background: none;\n    border: none;\n    cursor: pointer;\n    padding: 0 4px;\n  }\n\n  #debug-tools {\n    position: absolute;\n    bottom: 0;\n  }\n\n  </style>\n  <game-theme-manager>\n    <div id="game">\n      <header>\n        <div class="menu">\n          <button id="help-button" class="icon" aria-label="help">\n            <game-icon icon="help"></game-icon>\n          </button>\n        </div>\n        <div class="title">\n      BABY WORDLE\n      </div>\n        <div class="menu">\n          <button id="statistics-button" class="icon" aria-label="statistics">\n            <game-icon icon="statistics"></game-icon>\n          </button>\n          <button id="settings-button" class="icon" aria-label="settings">\n            <game-icon icon="settings"></game-icon>\n          </button>\n        </div>\n      </header>\n        <div id="board-container">\n          <div id="board"></div>\n        </div>\n        <game-keyboard></game-keyboard>\n        <game-modal></game-modal>\n        <game-page></game-page>\n        <div class="toaster" id="game-toaster"></div>\n        <div class="toaster" id="system-toaster"></div>\n    </div>\n  </game-theme-manager>\n  <div id="debug-tools"></div>\n'
+          ';\n  }\n\n  #game {\n    width: 100%;\n    max-width: var(--game-max-width);\n    margin: 0 auto;\n    height: 100%;\n    display: flex;\n    flex-direction: column;\n  }\n  header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    height: var(--header-height);\n    color: var(--color-tone-1);\n    border-bottom: 1px solid var(--color-tone-4);\n  }\n  header .title {\n    font-weight: 700;\n    font-size: 36px;\n    letter-spacing: 0.2rem;\n    text-transform: uppercase;\n    text-align: center;\n    position: absolute;\n    left: 0;\n    right: 0;\n    pointer-events: none;\n  }\n\n  @media (max-width: 360px) {\n    header .title {\n      font-size: 22px;\n      letter-spacing: 0.1rem;\n    }\n  }\n\n  #board-container {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-grow: 1;\n    overflow: hidden;\n  }\n  #board {\n    display: grid;\n    grid-template-rows: repeat(6, 1fr);\n    grid-gap: 5px;\n    padding:10px;\n    box-sizing: border-box;\n  }\n  button.icon {\n    background: none;\n    border: none;\n    cursor: pointer;\n    padding: 0 4px;\n  }\n\n  #debug-tools {\n    position: absolute;\n    bottom: 0;\n  }\n\n  </style>\n  <game-theme-manager>\n    <div id="game">\n      <header>\n        <div class="menu">\n          <button id="help-button" class="icon" aria-label="help">\n            <game-icon icon="help"></game-icon>\n          </button>\n        </div>\n        <div class="title">\n      BABY WORDLE\n      </div>\n        <div class="menu">\n          <button id="statistics-button" class="icon" aria-label="statistics" style="visibility: hidden">\n            <game-icon icon="statistics"></game-icon>\n          </button>\n          <button id="settings-button" class="icon" aria-label="settings">\n            <game-icon icon="settings"></game-icon>\n          </button>\n        </div>\n      </header>\n        <div id="board-container">\n          <div id="board"></div>\n        </div>\n        <game-keyboard></game-keyboard>\n        <game-modal></game-modal>\n        <game-page></game-page>\n        <div class="toaster" id="game-toaster"></div>\n        <div class="toaster" id="system-toaster"></div>\n    </div>\n  </game-theme-manager>\n  <div id="debug-tools"></div>\n'
         );
     var Qa = document.createElement("template");
     Qa.innerHTML =
@@ -1845,12 +1844,19 @@ const POSSIBLE_NAMES = NAMES_LIST.filter((d) => d.length === WORD_LEN);
                       ) &&
                         ([es, as].includes(e.gameStatus) &&
                           (e.restoringFromLocalStorage
-                            ? e.showStatsModal()
+                            ? (e.showStatsModal(),
+                                e.$game.querySelector("#statistics-button")
+                                .style.visibility = 'visible'
+                            )
                             : (e.gameStatus === es &&
                                 (s.setAttribute("win", ""),
                                 e.addToast(ss[e.rowIndex - 1], 2e3)),
+                                e.$game.querySelector("#statistics-button")
+                                  .style.visibility = 'visible',
                               e.gameStatus === as &&
                                 e.addToast(e.solution.toUpperCase(), 1 / 0),
+                                e.$game.querySelector("#statistics-button")
+                                  .style.visibility = 'visible',
                               setTimeout(function () {
                                 e.showStatsModal();
                               }, 2500))),
