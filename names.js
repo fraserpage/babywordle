@@ -1799,7 +1799,6 @@ const NAMES_LIST = [
 "nat", 
 "natale", 
 "nate", 
-"nathan", 
 "nathanael", 
 "nathanial", 
 "nathaniel", 
