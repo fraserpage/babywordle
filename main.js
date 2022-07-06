@@ -1,12 +1,12 @@
-var first_name = "first";
-var rest_of_name = "middle last";
-var born_at = "time";
+var first_name = "Nathan";
+var rest_of_name = "Francis Grant";
+var born_at = "June 29, 2022 at 11:03 am";
 var date_on = "date";
-var weight = "weight";
+var weight = "9 lbs 4 oz";
 var baby_length = "length";
 var extra =
-  "Something to go here!";
-var resetcache = "101";
+  "“Nathan”, meaning “given”, represents the gift of his birth. “Francis”, patron saint of animals, celebrates Nathan’s older, four-legged siblings Hannah Hope (late), Jack, and Joey.";
+var resetcache = "1";
 
 const WORD_LEN = first_name.length;
 const POSSIBLE_NAMES = NAMES_LIST.filter((d) => d.length === WORD_LEN);
@@ -2444,17 +2444,13 @@ const POSSIBLE_NAMES = NAMES_LIST.filter((d) => d.length === WORD_LEN);
       first_name +
       " " +
       rest_of_name +
-      "</div>\n    <h2>born at</h2>" +
+      "</div>\n    <h2>born</h2>" +
       born_at +
-      "<h2>on</h2>" +
-      date_on +
-      "<h2>He weighs</h2>" +
+      "<h2>WEIGHING</h2>" +
       weight +
-      "<h2>And is</h2>" +
-      baby_length +
-      '<div class="container">' +
+      '<p class="container" style="text-align:center">' +
       extra +
-      '</div>  <div class="share">\n    <button id="share-button">\n      Share <game-icon icon="share"></game-icon>\n    </button>\n  </div> <div class="footer"></div>\n  </div>\n';
+      '</p>  <div class="share">\n    <button id="share-button">\n      Share <game-icon icon="share"></game-icon>\n    </button>\n  </div> <div class="footer"></div>\n  </div>\n';
     var Ls = document.createElement("template");
     Ls.innerHTML =
       '\n  <div class="statistic-container">\n    <div class="statistic"></div>\n    <div class="label"></div>\n  </div>\n';
@@ -2711,7 +2707,7 @@ const POSSIBLE_NAMES = NAMES_LIST.filter((d) => d.length === WORD_LEN);
       }
     }
     $s.innerHTML =
-      '\n  <style>\n  .instructions {\n    font-size: 14px;\n    color: var(--color-tone-1)\n  }\n\n  .examples {\n    border-bottom: 1px solid var(--color-tone-4);\n    border-top: 1px solid var(--color-tone-4);\n  }\n\n  .example {\n    margin-top: 24px;\n    margin-bottom: 24px;\n  }\n\n  game-tile {\n    width: 40px;\n    height: 40px;\n  }\n\n  :host([page]) section {\n    padding: 16px;\n    padding-top: 0px;\n  }\n\n  </style>\n  <section>\n    <div class="instructions">\n      <p>Guess the <strong>BABY WORDLE</strong> (the name of Hilary and Ben\'s son) in 6 tries.</p>\n      <p>Each guess must be a valid '+WORD_LEN+' letter boy\'s name. Hit the enter button to submit.</p>\n      <p>After each guess, the color of the tiles will change to show how close your guess was to the word.</p>\n      <div class="examples">\n        <p><strong>Examples</strong></p>\n        <div class="example">\n          <div class="row">\n            '+example[0]+'</div>\n          <p>The letter <strong>'+exWord[0][0].toUpperCase()+'</strong> is in the word and in the correct spot.</p>\n        </div>\n        <div class="example">\n          <div class="row">\n            '+example[1]+'       </div>\n          <p>The letter <strong>'+exWord[1][1].toUpperCase()+'</strong> is in the word but in the wrong spot.</p>\n        </div>\n        <div class="example">\n          <div class="row">\n            '+example[2]+'         </div>\n          <p>The letter <strong>'+exWord[2][2].toUpperCase()+'</strong> is not in the word in any spot.</p>\n        </div>\n      </div>\n      <p><strong>A new BABY WORDLE will be available each child!<strong></p>\n    </div>\n  </section>\n';
+      '\n  <style>\n  .instructions {\n    font-size: 14px;\n    color: var(--color-tone-1)\n  }\n\n  .examples {\n    border-bottom: 1px solid var(--color-tone-4);\n    border-top: 1px solid var(--color-tone-4);\n  }\n\n  .example {\n    margin-top: 24px;\n    margin-bottom: 24px;\n  }\n\n  game-tile {\n    width: 40px;\n    height: 40px;\n  }\n\n  :host([page]) section {\n    padding: 16px;\n    padding-top: 0px;\n  }\n\n  </style>\n  <section>\n    <div class="instructions">\n      <p>Guess the <strong>BABY WORDLE</strong> (the name of Hilary and Ben\'s son) in 6 tries.</p>\n      <p>Each guess must be a valid '+WORD_LEN+' letter boy\'s name. Hit the enter button to submit.</p>\n      <p>After each guess, the color of the tiles will change to show how close your guess was to the word.</p>\n      <div class="examples">\n        <p><strong>Examples</strong></p>\n        <div class="example">\n          <div class="row">\n            '+example[0]+'</div>\n          <p>The letter <strong>'+exWord[0][0].toUpperCase()+'</strong> is in the word and in the correct spot.</p>\n        </div>\n        <div class="example">\n          <div class="row">\n            '+example[1]+'       </div>\n          <p>The letter <strong>'+exWord[1][1].toUpperCase()+'</strong> is in the word but in the wrong spot.</p>\n        </div>\n        <div class="example">\n          <div class="row">\n            '+example[2]+'         </div>\n          <p>The letter <strong>'+exWord[2][2].toUpperCase()+'</strong> is not in the word in any spot.</p>\n        </div>\n      </div>\n      <p><strong>A new BABY WORDLE will be available each birth!<strong></p>\n    </div>\n  </section>\n';
     var Hs = (function (e) {
       r(t, e);
       var a = h(t);
